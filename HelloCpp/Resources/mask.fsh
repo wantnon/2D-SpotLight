@@ -23,6 +23,12 @@ void main() {
     float dis_curPixelToC=distance(curPixelPos,c);
     vec4 curPixelColor;
     if(dis_curPixelToC<r){
+        //use the curve y=1/(r*r)*x*x-2/r*x+1
+        //float temp=max(0.0,1.0-dis_curPixelToC/r);
+        //float k=temp*temp;
+        //curPixelColor=(brightColor-darkColor)*k+darkColor;
+        
+        //use the curve y=x
         curPixelColor=brightColor-(brightColor-darkColor)/r*dis_curPixelToC;
     }else{
         curPixelColor=darkColor;
